@@ -116,9 +116,8 @@ namespace SWICD.Services
             MouseRelData.ReportID = 1;
             MouseRelData.CommandCode = 2;
             byte btns = 0;
-            if (leftButton) { btns = 1; };
+            if (leftButton) { btns = (byte)(btns | 1); }
             if (rightButton) { btns = (byte)(btns | (1 << 1)); }
-            if (leftButton) { btns = (byte)(btns | (1 << 2)); }
             MouseRelData.Buttons = btns;  //button states are represented by the 3 least significant bits
             if (!ignoreMove)
             {
